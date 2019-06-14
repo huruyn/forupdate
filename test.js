@@ -20,7 +20,12 @@ tape('should respond user-agent', (t) => {
   jsonist.get(`${urlBase}/user-agent`, opts, (err, body) => {
     if (err) t.error(err)
 
-    t.equal(body.ua, 'tape')
+    t.equal(body.ua, 'tape') })})
+tape('should respond b64', (t) => {
+  jsonist.get(`${urlBase}/b64/hello`, (err, body) => {
+    if (err) t.error(err)
+
+    t.equal(body.b64, 'aGVsbG8=')
     t.end()
   })
 })
